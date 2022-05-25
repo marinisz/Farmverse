@@ -1,0 +1,22 @@
+{
+  "name": "farmverse",
+  "version": "1.0.0",
+  "description": "Farmverse - Desenvolvimento Mobile",
+  "main": "index.js",
+  "scripts": {
+    "server": "json-server --watch db.json --port 5000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marinisz/Farmverse.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marinisz/Farmverse/issues"
+  },
+  "homepage": "https://github.com/marinisz/Farmverse#readme",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}

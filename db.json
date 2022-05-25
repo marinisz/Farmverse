@@ -1,0 +1,16 @@
+{
+  "animais": [
+    {
+      "descricao": "Vaca",
+      "proprietario": "Fazenda Topzera",
+      "preco": 2000,
+      "id": 2
+    },
+    {
+      "descricao": "Boi",
+      "proprietario": "Fazenda Topzera",
+      "preco": 2000,
+      "id": 3
+    }
+  ]
+}
