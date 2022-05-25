@@ -4,7 +4,8 @@
   "description": "Farmverse - Desenvolvimento Mobile",
   "main": "index.js",
   "scripts": {
-    "server": "json-server --watch db.json --port 5000"
+    "server": "json-server --watch db.json --port 5000",
+    "mobile": "cd mobile/farmverse && flutter run -d \"chrome\" "
   },
   "repository": {
     "type": "git",
