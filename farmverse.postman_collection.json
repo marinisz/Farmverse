@@ -29,6 +29,29 @@
 			"response": []
 		},
 		{
+			"name": "get id",
+			"protocolProfileBehavior": {
+				"strictSSL": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/animais/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"animais",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "post",
 			"protocolProfileBehavior": {
 				"strictSSL": false
