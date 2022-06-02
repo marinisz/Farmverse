@@ -58,10 +58,16 @@
 			},
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"descricao\": \"Vaca\",\r\n    \"proprietario\": \"Fazenda Topzera\",\r\n    \"preco\":2000\r\n}"
+					"raw": "{\r\n   \"descricao\": \"Vaca\",\r\n    \"proprietario\": \"Fazenda Topzera\",\r\n    \"urlImagem\": \"\",\r\n    \"preco\": 2000\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:5000/animais",

@@ -1,16 +1,18 @@
 {
   "animais": [
     {
-      "descricao": "Vaca",
-      "proprietario": "Fazenda Topzera",
-      "preco": 2000,
-      "id": 2
-    },
-    {
       "descricao": "Boi",
       "proprietario": "Fazenda Topzera",
+      "urlImagem": "sss.com",
       "preco": 2000,
-      "id": 3
+      "id": 1
+    },
+    {
+      "descricao": "Vaca",
+      "proprietario": "Fazenda Topzera",
+      "urlImagem": "",
+      "preco": 2000,
+      "id": 2
     }
   ]
 }
