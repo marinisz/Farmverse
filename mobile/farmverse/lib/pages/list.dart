@@ -60,7 +60,7 @@ class _AnimalsListState extends State<AnimalsList> {
                           leading: const Padding(
                             padding: EdgeInsets.only(top: 5.0),
                           ),
-                          title: Text((snapshot.data[index].descricao)),
+                          title: Text((snapshot.data[index].descricao.toString())),
                         ),
                       ),
                     ),
