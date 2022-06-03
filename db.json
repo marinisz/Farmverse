@@ -3,16 +3,23 @@
     {
       "descricao": "Boi",
       "proprietario": "Fazenda Topzera",
-      "urlImagem": "sss.com",
+      "urlImagem": "https://tribunapr.uol.com.br/wp-content/uploads/sites/81/2021/11/24135331/Boi-Chifre_baixaResolucao.jpg",
       "preco": 2000,
       "id": 1
     },
     {
       "descricao": "Vaca",
       "proprietario": "Fazenda Topzera",
-      "urlImagem": "",
+      "urlImagem": "https://blogs.canalrural.com.br/coisasdocampo/wp-content/uploads/sites/11/2015/09/VACA-1.jpg",
       "preco": 2000,
       "id": 2
+    },
+    {
+      "descricao": "Porco",
+      "proprietario": "Fazenda Alegria",
+      "urlImagem": "https://img.r7.com/images/porco-desaparicao-corpo-24022021174926376?dimensions=771x420&no_crop=true",
+      "preco": 2000,
+      "id": 3
     }
   ]
 }
