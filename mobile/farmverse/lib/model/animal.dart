@@ -19,7 +19,7 @@ class Animal {
       descricao: json['descricao'],
       preco: json['preco'],
       proprietario: json['proprietario'],
-      urlImagem: json['urlimagem']
+      urlImagem: json['urlImagem']
     );
   }
 }

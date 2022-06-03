@@ -14,11 +14,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const AnimalsList(),
       theme: ThemeData(
-          primaryColor: Colors.amber,
+        scaffoldBackgroundColor: Colors.grey,
+          primaryColor: Colors.brown,
           tabBarTheme: const TabBarTheme(
             labelColor: Colors.black87, // color for text
           ),
-          primarySwatch: Colors.green),
+          primarySwatch: Colors.brown),
     );
   }
 }
