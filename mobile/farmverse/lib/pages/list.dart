@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:farmverse/model/animal.dart';
@@ -41,6 +41,17 @@ class _AnimalsListState extends State<AnimalsList> {
       appBar: AppBar(
         title: const Text('Farmverse'),
         backgroundColor: Colors.brown,
+      actions: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+            child: IconButton(
+              icon: const FaIcon(FontAwesomeIcons.cow),
+              onPressed: () {
+                //inserir navegação para perfil}
+              }
+            ),
+          ),
+        ],
       ),
       body: FutureBuilder<List<dynamic>>(
         future: fetchAnimais(),
