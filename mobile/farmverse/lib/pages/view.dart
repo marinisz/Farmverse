@@ -17,6 +17,7 @@ class _AnimalViewState extends State<AnimalView> {
   // late Future<List<Animal>> animais;
   String descricao = ' ';
   String proprietario = ' ';
+  String urlImagem = ' ';
   num preco = 0;
   final GlobalKey<FormState> _formKey = GlobalKey();
 
@@ -26,6 +27,7 @@ class _AnimalViewState extends State<AnimalView> {
       descricao = widget.animal.descricao;
       proprietario = widget.animal.proprietario;
       preco = widget.animal.preco;
+      urlImagem = widget.animal.urlImagem;
     });
     super.initState();
   }
@@ -60,7 +62,7 @@ class _AnimalViewState extends State<AnimalView> {
                   const SizedBox(height: 20),
                   Card(
                     elevation: 5,
-                    color: Colors.grey,
+                    // color: Colors.grey,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
@@ -71,35 +73,17 @@ class _AnimalViewState extends State<AnimalView> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              IconButton(
-                                alignment: Alignment.topRight,
-                                icon: const FaIcon(
-                                  FontAwesomeIcons.ellipsis,
-                                  size: 30.0,
-                                  color: Colors.black,
+                              Container(
+                                width: MediaQuery.of(context).size.width * 0.86,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.36,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    fit: BoxFit.fitWidth,
+                                    image: NetworkImage(urlImagem),
+                                  ),
                                 ),
-                                color: Colors.black,
-                                onPressed: () {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //       builder: (context) =>
-                                  //           WalletForm(widget.wallet)),
-                                  // ).then((value) => {
-                                  //       if (value is Wallet)
-                                  //         {
-                                  //           setState(() {
-                                  //             description = value.description!;
-                                  //           }),
-                                  //         }
-                                  //       else if (value is String)
-                                  //         {
-                                  //           if (value == 'CLOSE')
-                                  //             Navigator.of(context).pop()
-                                  //         }
-                                  //     });
-                                },
-                              ),
+                              )
                             ],
                           ),
                         ),
@@ -115,21 +99,15 @@ class _AnimalViewState extends State<AnimalView> {
                                         fontWeight: FontWeight.bold))),
                           ),
                         ),
-                        // const SizedBox(height: 25.0),
-                        // Text(
-                        //   widget.wallet.shared == 1 ? 'Shared' : 'Private',
-                        //   style: const TextStyle(fontWeight: FontWeight.w700),
-                        // ),
-                        // const SizedBox(height: 60.0),
                       ],
                     ),
                   ),
                   const SizedBox(
-                    height: 35,
+                    height: 30,
                   ),
-                  const Card(
+                  Card(
                     child: ListTile(
-                        leading: Padding(
+                        leading: const Padding(
                           padding: EdgeInsets.only(top: 4.0, left: 4.0),
                           child: FaIcon(
                             FontAwesomeIcons.user,
@@ -137,15 +115,15 @@ class _AnimalViewState extends State<AnimalView> {
                             color: Colors.black,
                           ),
                         ),
-                        title: Text('Proprietario'),
-                        subtitle: Text('proprietario')),
+                        title: Text('Proprietário'),
+                        subtitle: Text(proprietario)),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
-                  const Card(
+                  Card(
                     child: ListTile(
-                        leading: Padding(
+                        leading: const Padding(
                           padding: EdgeInsets.only(top: 4.0, left: 4.0),
                           child: FaIcon(
                             FontAwesomeIcons.brazilianRealSign,
@@ -154,10 +132,27 @@ class _AnimalViewState extends State<AnimalView> {
                           ),
                         ),
                         title: Text('Preço'),
-                        subtitle: Text('20000')),
+                        subtitle: Text(preco.toString())),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 5,
+                  ),
+                  Card(
+                    child: ListTile(
+                        leading: const Padding(
+                          padding: EdgeInsets.only(top: 4.0, left: 4.0),
+                          child: FaIcon(
+                            FontAwesomeIcons.cow,
+                            size: 30.0,
+                            color: Colors.black,
+                          ),
+                        ),
+                        title: Text('Características'),
+                        subtitle: Text(
+                            "Idade: 3 anos, Peso: 400kg, Altura: 150cm, Comprimento: 130cm")),
+                  ),
+                  const SizedBox(
+                    height: 5,
                   ),
                   // GestureDetector(
                   //   onTap: () async {
