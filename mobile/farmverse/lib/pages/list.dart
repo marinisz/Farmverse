@@ -30,11 +30,15 @@ Future<List<Animal>> fetchAnimais() async {
   } catch (e) {
     print(e);
     final jsonData =
-        '{ "id": 1, "descricao": "vaquinha", "proprietario": "Joao", "preco": 2000.3, "urlImagem": "https://picsum.photos/250?image=9"}';
+        '[ { "id": 1, "descricao": "vaquinha", "proprietario": "Joao", "preco": 2000.3, "urlImagem": "https://static.dw.com/image/50907943_303.jpg"}, { "id": 2, "descricao": "marronzinha", "proprietario": "Seu zé", "preco": 3000.3, "urlImagem": "https://i0.wp.com/profissaobiotec.com.br/wp-content/uploads/2019/10/cow-1715829_1920-1.jpg?fit=1088%2C725&ssl=1"}]';
 // 2. decode the json
-    final parsedJson = jsonDecode(jsonData);
-    print(parsedJson);
-    animais.add(Animal.fromJson(parsedJson));
+    final animaisJson = jsonDecode(jsonData);
+
+    for (var animal in animaisJson) {
+      animais.add(Animal.fromJson(animal));
+    }
+
+    // animais.add(Animal.fromJson(parsedJson));
     // walletList = await fetchWalletsOffline();
   }
   return animais;
