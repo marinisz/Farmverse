@@ -53,7 +53,7 @@ class _AnimalViewState extends State<AnimalView> {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(4),
+            padding: const EdgeInsets.all(2),
             child: Form(
               key: _formKey,
               child: Column(
@@ -69,7 +69,7 @@ class _AnimalViewState extends State<AnimalView> {
                     child: Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(right: 20, top: 10),
+                          padding: const EdgeInsets.only(right: 20, top: 5),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
