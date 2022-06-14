@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:farmverse/model/animal.dart';
 
+import 'fazenda.dart';
+import 'list.dart';
+
 class Adicionar extends StatefulWidget {
-  final Animal animal;
-  const Adicionar(this.animal, {Key? key}) : super(key: key);
+  const Adicionar({Key? key}) : super(key: key);
   @override
   State<Adicionar> createState() => _AdicionarViewState();
 }
@@ -20,6 +22,7 @@ class _AdicionarViewState extends State<Adicionar> {
   final TextEditingController _controladorurlImagem = TextEditingController();
   @override
   void initState() {
+    _controladorproprietario.text = "Fazenda Topzera";
     super.initState();
   }
 
@@ -36,50 +39,72 @@ class _AdicionarViewState extends State<Adicionar> {
             child: IconButton(
                 icon: const FaIcon(FontAwesomeIcons.cow),
                 onPressed: () {
-                  //inserir navegação para perfil}
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Fazenda()),
+                  );
                 }),
           ),
         ],
       ),
-      body: Column(
-        children: <Widget>[
-          TextField(
-            controller: _controladordescricao,
-            decoration: InputDecoration(labelText: 'Descrição'),
+      body: Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: SizedBox(
+          height: 300,
+          child: Card(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    controller: _controladordescricao,
+                    decoration: InputDecoration(labelText: 'Descrição'),
+                  ),
+                  TextField(
+                    controller: _controladorproprietario,
+                    decoration: InputDecoration(labelText: 'Proprietario'),
+                  ),
+                  TextField(
+                    controller: _controladorpreco,
+                    decoration: InputDecoration(labelText: 'Preço'),
+                  ),
+                  TextField(
+                    controller: _controladorurlImagem,
+                    decoration: InputDecoration(labelText: 'Url'),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                      child: Text('Cadastrar'),
+                      onPressed: () {
+                        final String descricao = _controladordescricao.text;
+                        final String propriaetario =
+                            _controladorproprietario.text;
+                        final int valor = int.parse(_controladorpreco.text);
+                        final String Url = _controladorurlImagem.text;
+                        final jsonData =
+                            '{"descricao": "${descricao}", "proprietario": "${propriaetario}", "preco": ${valor}, "urlImagem": "${Url}"}';
+                        final animaisJson = jsonDecode(jsonData);
+                        http.post(Uri.parse('http://localhost:5000/animais'),
+                            headers: <String, String>{
+                              'Content-Type': 'application/json; charset=UTF-8',
+                            },
+                            body: jsonData);
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AnimalsList()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                          shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(30.0),
+                      )))
+                ],
+              ),
+            ),
           ),
-          TextField(
-            controller: _controladorproprietario,
-            decoration: InputDecoration(labelText: 'Proprietario'),
-          ),
-          TextField(
-            controller: _controladorpreco,
-            decoration: InputDecoration(labelText: 'Preço'),
-          ),
-          TextField(
-            controller: _controladorurlImagem,
-            decoration: InputDecoration(labelText: 'Url'),
-          ),
-          RaisedButton(
-            child: Text('Cadastrar'),
-            onPressed: () {
-              final String descricao = _controladordescricao.text;
-              final String propriaetario = _controladorproprietario.text;
-              final int valor = int.parse(_controladorpreco.text);
-              final String Url = _controladorurlImagem.text;
-              final jsonData =
-                  '[ { "id": 5, "descricao": "${descricao}", "proprietario": "${propriaetario}", "preco": ${valor}, "urlImagem": "${Url}"}]';
-              final animaisJson = jsonDecode(jsonData);
-              List<Animal> animais = <Animal>[];
-
-              for (var animal in animaisJson) {
-                animais.add(Animal.fromJson(animal));
-              }
-              final Animal produtoNovo = animais[0];
-              // Animal(5, descricao, propriaetario, valor, Url);
-              print(produtoNovo);
-            },
-          )
-        ],
+        ),
       ),
     );
   }
