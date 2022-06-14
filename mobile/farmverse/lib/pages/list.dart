@@ -56,7 +56,7 @@ class _AnimalsListState extends State<AnimalsList> {
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
-        title: const Text('Farmverse'),
+        title: const Text(''),
         backgroundColor: Colors.brown,
         actions: [
           Padding(
