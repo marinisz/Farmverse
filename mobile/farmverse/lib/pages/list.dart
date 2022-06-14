@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:html';
 import 'package:farmverse/pages/view.dart';
+import 'package:farmverse/pages/Adiconar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -68,6 +69,27 @@ class _AnimalsListState extends State<AnimalsList> {
                 icon: const FaIcon(FontAwesomeIcons.cow),
                 onPressed: () {
                   Navigator.push(context, Fazenda);
+                }),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+            child: IconButton(
+                icon: const FaIcon(FontAwesomeIcons.plus),
+                onPressed: () {
+                  final Animal a = Animal(
+                      id: 5,
+                      descricao: "snapshot.data[index].descricao",
+                      preco: 0,
+                      proprietario: "",
+                      urlImagem: "");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Adicionar(a)),
+                  ).then((value) => {
+                        setState(() {
+                          animais = fetchAnimais();
+                        })
+                      });
                 }),
           ),
         ],
