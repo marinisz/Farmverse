@@ -1,9 +1,12 @@
 import 'dart:convert';
+import 'dart:html';
 import 'package:farmverse/pages/view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:farmverse/model/animal.dart';
+
+import 'fazenda.dart';
 
 class AnimalsList extends StatefulWidget {
   const AnimalsList({Key? key}) : super(key: key);
@@ -64,7 +67,7 @@ class _AnimalsListState extends State<AnimalsList> {
             child: IconButton(
                 icon: const FaIcon(FontAwesomeIcons.cow),
                 onPressed: () {
-                  //inserir navegação para perfil}
+                  Navigator.push(context, Fazenda);
                 }),
           ),
         ],
