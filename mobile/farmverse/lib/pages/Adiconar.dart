@@ -22,6 +22,7 @@ class _AdicionarViewState extends State<Adicionar> {
   final TextEditingController _controladorurlImagem = TextEditingController();
   @override
   void initState() {
+    _controladorproprietario.text = "Fazenda Topzera";
     super.initState();
   }
 
