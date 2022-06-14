@@ -23,7 +23,7 @@ Future<List<Animal>> fetchAnimais() async {
     String url = "http://localhost:5000/animais";
     response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
-      print(response);
+      print(response.body);
       final animaisJson = jsonDecode(response.body);
       for (var animal in animaisJson) {
         animais.add(Animal.fromJson(animal));
@@ -68,7 +68,10 @@ class _AnimalsListState extends State<AnimalsList> {
             child: IconButton(
                 icon: const FaIcon(FontAwesomeIcons.cow),
                 onPressed: () {
-                  Navigator.push(context, Fazenda);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Fazenda()),
+                  );
                 }),
           ),
           Padding(
@@ -76,15 +79,9 @@ class _AnimalsListState extends State<AnimalsList> {
             child: IconButton(
                 icon: const FaIcon(FontAwesomeIcons.plus),
                 onPressed: () {
-                  final Animal a = Animal(
-                      id: 5,
-                      descricao: "snapshot.data[index].descricao",
-                      preco: 0,
-                      proprietario: "",
-                      urlImagem: "");
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Adicionar(a)),
+                    MaterialPageRoute(builder: (context) => Adicionar()),
                   ).then((value) => {
                         setState(() {
                           animais = fetchAnimais();
